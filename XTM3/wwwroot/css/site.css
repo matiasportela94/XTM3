@@ -1,0 +1,73 @@
+﻿html, body {
+    color: white;
+    background-color: #1F044D;
+    height: 100%;
+    width: 100%;
+    font-family: 'Barlow';
+}
+
+/*
+----------------------NAVBAR STYLES----------------------
+    |   |   |   |   |   |   |   |   |   |   |   |   |   
+    |   |   |   |   |   |   |   |   |   |   |   |   |   
+    |   |   |   |   |   |   |   |   |   |   |   |   |   
+    v   v   v   v   v   v   v   v   v   v   v   v   v
+*/
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/*
+-----------------------BODY ELEMENTS STYLES------------------
+    |   |   |   |   |   |   |   |   |   |   |   |   |  
+    |   |   |   |   |   |   |   |   |   |   |   |   |   
+    |   |   |   |   |   |   |   |   |   |   |   |   |   
+    v   v   v   v   v   v   v   v   v   v   v   v   v
+*/
+
+.carousel-item {
+    max-width: 100%;
+    max-height: 550px;
+}
+
+
+/*
+   -----------------------FOOTER STYLES------------------
+    |   |   |   |   |   |   |   |   |   |   |   |   |  
+    |   |   |   |   |   |   |   |   |   |   |   |   |   
+    |   |   |   |   |   |   |   |   |   |   |   |   |   
+    v   v   v   v   v   v   v   v   v   v   v   v   v
+*/
+
+.footer {
+    height: 40px;
+    color: black;
+    background-color: white;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    align-content: center;
+    vertical-align: central;
+    margin-top: 60px;
+}

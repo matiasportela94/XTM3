@@ -1,0 +1,64 @@
+﻿@page
+@model XTM3.Pages.BookingsPages.BookingsPageModel
+@{
+
+    ViewData["Title"] = "XTM - Bookings";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Planes.css" />
+</head>
+
+<body>
+    <div>
+        <h3 style="color:white">Greetings terricola!</h3>
+        <h4 style="color:white">Complete the following form in order to make a reservation.</h4>
+    </div>
+
+
+    <form method="post">
+
+        <div asp-validation-summary="All">
+
+            <div class="form-group">
+                <label asp-for="@Model.PendingReservation.UserID" class="control-label">User ID</label>
+                <input asp-for="@Model.PendingReservation.UserID" placeholder="ID de Usuario" class="form-control" min="1" pattern="^[0-9]+" />
+                <span class="text-danger" asp-validation-for="PendingReservation.UserID"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.PendingReservation.Date" class="control-label">Departure</label>
+                <input asp-for="@Model.PendingReservation.Date" type="date" placeholder="dd-MM-yyyy" min=@Model.Today class="form-control" />
+                <span class="text-danger" asp-validation-for="PendingReservation.Date"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.PendingReservation.Passengers" class="control-label">Passengers</label>
+                <input asp-for="@Model.PendingReservation.Passengers" placeholder="Number of Passengers" class="form-control" min="1" pattern="^[0-9]+" />
+                <span class="text-danger" asp-validation-for="PendingReservation.Passengers"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.PendingReservation.OriginCity" class="control-label">Origin City</label>
+                <select asp-for="@Model.PendingReservation.OriginCity" class="form-control" asp-items="@Model.Origins">
+                    <option>Choose an Origin</option>
+                </select>
+                <span class="text-danger" asp-validation-for="PendingReservation.OriginCity"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.PendingReservation.DestinyCity" class="control-label">Destiny City</label>
+                <select asp-for="@Model.PendingReservation.DestinyCity" class="form-control" asp-items="@Model.Destinations">
+                    <option>Choose a Destination</option>
+                </select>
+                <span class="text-danger" asp-validation-for="PendingReservation.DestinyCity"></span>
+            </div>
+        </div>
+
+        <input type="submit" role="button" value="Reserve Flight" class="btn btn-primary" />
+
+
+
+    </form>
+
+</body>

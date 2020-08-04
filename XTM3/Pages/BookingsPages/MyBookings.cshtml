@@ -1,0 +1,56 @@
+﻿@page
+@model XTM3.Pages.BookingsPages.MyBookingsModel
+@{
+    ViewData["Title"] = "XTM - All Bookings";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Planes.css" />
+</head>
+
+<body>
+    <h3>Hey!</h3>
+    <h4>These are your reserved flights</h4>
+    <div class="container h-100" style="margin-top:20px;">
+
+        <form method="get">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="search" class="form-control" asp-for="SearchTerm" placeholder="Ingresa ID de Avion o Fecha para buscar reservas especificas." />
+                </div>
+            </div>
+        </form>
+
+        <table class="table table-bordered table-striped w-100">
+            <thead>
+                <tr class="col col-sm-6 col-md-6" style="color:white; text-align: center;">
+                    <td>User ID</td>
+                    <td>Plane ID</td>
+                    <td>Date</td>
+                    <td>Passengers</td>
+                    <td>Origin City</td>
+                    <td>Destiny City</td>
+                    <td>Price</td>
+                    <td>Print</td>
+                </tr>
+            </thead>
+            <tbody id="bookingsTable">
+                @foreach (var booking in Model.ReservedFlights)
+                {
+                    <tr class="col col-sm-6 col-md-6" style="color:white; text-align: center">
+                        <td>@booking.UserID</td>
+                        <td>@booking.PlaneID</td>
+                        <td>@booking.Date</td>
+                        <td>@booking.Passengers</td>
+                        <td>@booking.OriginCity</td>
+                        <td>@booking.DestinyCity</td>
+                        <td>@booking.Price</td>
+                        <td><i class="fas fa-print"></i></td>    <!--imprimir pasaje-->
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</body>

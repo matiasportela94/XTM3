@@ -1,0 +1,51 @@
+﻿html, body {
+    color: white;
+    background-color: #1F044D;
+    height: 100%;
+    width: 100%;
+    font-family: 'Barlow';
+}
+
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+table {
+    color: white;
+    border: hidden;
+    border-radius: 10px;
+    background-color: indigo;
+    padding: 20px;
+    width: 200px;
+    height: 150px;
+}
+
+.zone {
+    cursor: pointer;
+    background-color: #300552;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 5px;
+    border: hidden;
+    margin: 5px;
+}

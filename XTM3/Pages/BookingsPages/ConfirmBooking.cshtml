@@ -1,0 +1,54 @@
+﻿@page
+@model XTM3.Pages.BookingsPages.ConfirmBookingModel
+@{
+    ViewData["Title"] = "Confirm Booking";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Planes.css" />
+</head>
+
+<body>
+    <h3>Last step terricola!</h3>
+    <h4>Check the details and Confirm/Cancel your booking.</h4>
+    <div class="container h-100" style="margin-top:20px;">
+
+        <table class="table table-bordered table-striped w-100">
+            <thead>
+                <tr class="col col-sm-6 col-md-6" style="color:white; text-align: center;">
+                    <td>User ID</td>
+                    <td>Plane ID</td>
+                    <td>Date</td>
+                    <td>Passengers</td>
+                    <td>Origin City</td>
+                    <td>Destiny City</td>
+                    <td>Price</td>
+                    <td>Print</td>
+                </tr>
+            </thead>
+            <tbody id="bookingsTable">
+                <tr class="col col-sm-6 col-md-6" style="color:white; text-align: center">
+                    <td>@Model.pendingBooking.UserID</td>
+                    <td>@Model.pendingBooking.PlaneID</td>
+                    <td>@Model.pendingBooking.Date</td>
+                    <td>@Model.pendingBooking.Passengers</td>
+                    <td>@Model.pendingBooking.OriginCity</td>
+                    <td>@Model.pendingBooking.DestinyCity</td>
+                    <td>@Model.pendingBooking.Price</td>
+                    <td><i class="fas fa-print"></i></td>    <!--imprimir pasaje-->
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+        <form method="post">
+            <div class="form-group">
+                <input type="submit" role="button" value="Confirm" asp-for="@Model.Submit" class="btn btn-primary" />
+                <input type="submit" role="button" value="Cancel" asp-for="@Model.Cancel" class="btn btn-primary" /> <!--CANCEL BUTTON, elimina la reserva hecha-->
+            </div>
+        </form>
+
+    </div>
+</body>
