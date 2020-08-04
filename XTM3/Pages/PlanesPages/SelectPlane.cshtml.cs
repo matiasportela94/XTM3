@@ -60,8 +60,6 @@ namespace XTM3.Pages.PlanesPages
                     bookingsData.Update(PendingBooking);
                     bookingsData.Commit();
 
-                    
-                   
                     return RedirectToPage("/BookingsPages/ConfirmBooking");
                 }
 

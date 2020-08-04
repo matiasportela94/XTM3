@@ -85,27 +85,27 @@ namespace XTMData
 
             double flightPrice = 0.00;
 
-            if (booking.OriginCity.Equals("BUENOS_AIRES") && booking.DestinyCity.Equals("CORDOBA") || booking.OriginCity.Equals("CORDOBA") && booking.DestinyCity.Equals("BUENOS_AIRES"))
+            if (booking.OriginCity.Equals(Ciudad.BUENOS_AIRES) && booking.DestinyCity.Equals(Ciudad.CORDOBA) || booking.OriginCity.Equals(Ciudad.CORDOBA) && booking.DestinyCity.Equals(Ciudad.BUENOS_AIRES))
             {
                 flightPrice = ((BSAS_CORDOBA * plane.KmCost) / 10);
             }
-            else if (booking.OriginCity.Equals("BUENOS_AIRES") && booking.DestinyCity.Equals("MONTEVIDEO") || booking.OriginCity.Equals("MONTEVIDEO") && booking.DestinyCity.Equals("BUENOS_AIRES"))
+            else if (booking.OriginCity.Equals(Ciudad.BUENOS_AIRES) && booking.DestinyCity.Equals(Ciudad.MONTEVIDEO) || booking.OriginCity.Equals(Ciudad.MONTEVIDEO) && booking.DestinyCity.Equals(Ciudad.BUENOS_AIRES))
             {
                 flightPrice = ((BSAS_MONTEVIDEO * plane.KmCost) / 10);
             }
-            else if (booking.OriginCity.Equals("BUENOS_AIRES") && booking.DestinyCity.Equals("SANTIAGO_DE_CHILE") || booking.OriginCity.Equals("SANTIAGO_DE_CHILE") && booking.DestinyCity.Equals("BUENOS_AIRES"))
+            else if (booking.OriginCity.Equals(Ciudad.BUENOS_AIRES) && booking.DestinyCity.Equals(Ciudad.SANTIAGO_DE_CHILE) || booking.OriginCity.Equals(Ciudad.SANTIAGO_DE_CHILE) && booking.DestinyCity.Equals(Ciudad.BUENOS_AIRES))
             {
                 flightPrice = ((BSAS_SANTIAGO * plane.KmCost) / 10);
             }
-            else if (booking.OriginCity.Equals("CORDOBA") && booking.DestinyCity.Equals("MONTEVIDEO") || booking.OriginCity.Equals("MONTEVIDEO") && booking.DestinyCity.Equals("CORDOBA"))
+            else if (booking.OriginCity.Equals(Ciudad.CORDOBA) && booking.DestinyCity.Equals(Ciudad.MONTEVIDEO) || booking.OriginCity.Equals(Ciudad.MONTEVIDEO) && booking.DestinyCity.Equals(Ciudad.CORDOBA))
             {
                 flightPrice = ((CORDOBA_MONTEVIDEO * plane.KmCost) / 10);
             }
-            else if (booking.OriginCity.Equals("CORDOBA") && booking.DestinyCity.Equals("SANTIAGO_DE_CHILE") || booking.OriginCity.Equals("SANTIAGO_DE_CHILE") && booking.DestinyCity.Equals("CORDOBA"))
+            else if (booking.OriginCity.Equals(Ciudad.CORDOBA) && booking.DestinyCity.Equals(Ciudad.SANTIAGO_DE_CHILE) || booking.OriginCity.Equals(Ciudad.SANTIAGO_DE_CHILE) && booking.DestinyCity.Equals(Ciudad.CORDOBA))
             {
                 flightPrice = ((CORDOBA_SANTIAGO * plane.KmCost) / 10);
             }
-            else if (booking.OriginCity.Equals("MONTEVIDEO") && booking.DestinyCity.Equals("SANTIAGO_DE_CHILE") || booking.OriginCity.Equals("SANTIAGO_DE_CHILE") && booking.DestinyCity.Equals("MONTEVIDEO"))
+            else if (booking.OriginCity.Equals(Ciudad.MONTEVIDEO) && booking.DestinyCity.Equals(Ciudad.SANTIAGO_DE_CHILE) || booking.OriginCity.Equals(Ciudad.SANTIAGO_DE_CHILE) && booking.DestinyCity.Equals(Ciudad.MONTEVIDEO))
             {
                 flightPrice = ((MONTEVIDEO_SANTIAGO * plane.KmCost) / 10);
             }
