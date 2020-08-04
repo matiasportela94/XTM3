@@ -46,7 +46,7 @@ namespace XTM3.Pages.PlanesPages
             {
                 if (Submit != null)
                 {
-                    avionData.SetPlaneID(NewPlane);
+                    //avionData.SetPlaneID(NewPlane);
                     avionData.Add(NewPlane);
                     var commit = avionData.Commit();
 

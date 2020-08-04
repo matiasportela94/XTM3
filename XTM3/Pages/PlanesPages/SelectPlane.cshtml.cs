@@ -12,15 +12,17 @@ namespace XTM3.Pages.PlanesPages
     public class SelectPlaneModel : PageModel
     {
         private readonly IAvionData planesData;
+        public IEnumerable<Avion> Planes { get; set; }
         private readonly IBookingData bookingsData;
+        public IEnumerable<Booking> ReservedFlights { get; set; }
 
-        public Avion SelectedPlane { get; set; }
+        
 
         [BindProperty]
         public int SelectedPlaneID { get; set; }
+        public Avion SelectedPlane { get; set; }
 
-        public IEnumerable<Avion> Planes { get; set; }
-        public IEnumerable<Booking> Bookings { get; set; }
+        public Booking PendingBooking { get; set; }
 
 
 
@@ -29,14 +31,16 @@ namespace XTM3.Pages.PlanesPages
         {
             this.planesData = planesData;
             this.bookingsData = bookingsData;
+            this.PendingBooking = new Booking();
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
             Planes = planesData.GetAll();
-            Bookings = bookingsData.GetAll();
+            
             SelectedPlane = new Avion();
 
+            return Page();
         }
 
         public IActionResult OnPost()
@@ -44,14 +48,20 @@ namespace XTM3.Pages.PlanesPages
             if (ModelState.IsValid)
             {
 
-                var isPlane = planesData.GetPlanesByID(SelectedPlaneID);
+                SelectedPlane = planesData.GetPlanesByID(SelectedPlaneID);
 
-                if (isPlane != null)
+                if (SelectedPlane != null)
                 {
-                    var PendingBooking = Bookings.Last<Booking>();
-                    PendingBooking.PlaneID = SelectedPlaneID;
-                    PendingBooking.Price = bookingsData.GetPrice();
+                    ReservedFlights = bookingsData.GetAll();
+                    PendingBooking = ReservedFlights.Last<Booking>();
+
+                    PendingBooking.PlaneID = SelectedPlane.PlaneID;
+                    PendingBooking.Price = bookingsData.SetFlightPrice(PendingBooking, SelectedPlane);
                     bookingsData.Update(PendingBooking);
+                    bookingsData.Commit();
+
+                    
+                   
                     return RedirectToPage("/BookingsPages/ConfirmBooking");
                 }
 

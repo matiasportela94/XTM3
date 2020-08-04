@@ -15,7 +15,7 @@ namespace XTMData
         Booking SetBookingPlaneID(int selectedPlaneID);
         Booking GetBookingByID(int bookingID);
         IEnumerable<Booking> GetBookingsByDateOrPlaneID(string bookingDateOrID);
-        double SetFlightPrice();
+        double SetFlightPrice(Booking booking, Avion plane);
 
     }
 }

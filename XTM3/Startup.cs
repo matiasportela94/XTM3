@@ -31,7 +31,7 @@ namespace XTM3
 
 
             services.AddScoped<IAvionData, SqlPlaneData>();
-           // services.AddSingleton<IBookingData, SqlBookingData>();
+            services.AddScoped<IBookingData, SqlBookingData>();
 
 
             services.AddRazorPages();

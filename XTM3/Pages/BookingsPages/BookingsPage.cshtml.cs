@@ -53,7 +53,10 @@ namespace XTM3.Pages.BookingsPages
                 else
                 {
                     //VALIDAR ID USUARIO, SI EXISTE RESERVA
-                    BookingMade = bookingsData.Add(PendingReservation);
+                    PendingReservation.PlaneID = 0;
+                    PendingReservation.Price = 0.00;
+                    bookingsData.Add(PendingReservation);
+                    bookingsData.Commit();
                     //SI NO EXISTE VUELVE A INDEX (SI PUEDO PONER UN MENSAJE DE ERROR MEJOR)
                     return RedirectToPage("/PlanesPages/SelectPlane");
                 }

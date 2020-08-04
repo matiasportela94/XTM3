@@ -7,9 +7,6 @@
         CORDOBA,
         SANTIAGO_DE_CHILE,
         MONTEVIDEO,
-        PARIS,
-        LONDRES,
-        NUEVA_YORK,
-        CALIFORNIA
+
     }
 }

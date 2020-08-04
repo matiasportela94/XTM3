@@ -47,22 +47,6 @@ namespace XTMCore
 
         }
 
-        public Booking UpdateBooking(int planeID)
-        {
-            var flight = new Booking
-            {
-                UserID = UserID,
-                Date = Date,
-                OriginCity = OriginCity,
-                DestinyCity = DestinyCity,
-                PlaneID = planeID,
-                Passengers = Passengers,
-                Price = 0   // HACER METODO PARA CALCULAR TARIFA
-            };
-
-            return flight;
-        }
-
 
         public IEnumerator GetEnumerator()
         {

@@ -12,7 +12,6 @@ namespace XTM3.Pages.BookingsPages
     public class MyBookingsModel : PageModel
     {
         private readonly IBookingData bookingsData;
-
         public IEnumerable<Booking> ReservedFlights { get; set; }
 
         [BindProperty(SupportsGet = true)]

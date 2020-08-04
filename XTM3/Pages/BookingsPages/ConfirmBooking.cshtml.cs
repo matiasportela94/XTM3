@@ -21,6 +21,8 @@ namespace XTM3.Pages.BookingsPages
         [BindProperty]
         public string Cancel { get; set; }
 
+        public IEnumerable<Booking> Bookings { get; set; }
+
         public ConfirmBookingModel(IBookingData bookingData)
         {
             this.bookingData = bookingData;
@@ -29,7 +31,8 @@ namespace XTM3.Pages.BookingsPages
 
         public IActionResult OnGet()
         {
-            pendingBooking = bookingData.GetLastBooking();
+            Bookings = bookingData.GetAll();
+            pendingBooking = Bookings.Last<Booking>(); 
             Submit = null;
             Cancel = null;
 
@@ -47,6 +50,7 @@ namespace XTM3.Pages.BookingsPages
                 }
                 else if (Cancel != null)
                 {
+                    bookingData.Delete(pendingBooking.BookingID);
                     return RedirectToPage("/BookingsPages/BookingsPage");
                 }
 
