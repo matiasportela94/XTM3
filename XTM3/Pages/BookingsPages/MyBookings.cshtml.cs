@@ -28,6 +28,14 @@ namespace XTM3.Pages.BookingsPages
             if (SearchTerm == null)
             {
                 ReservedFlights = bookingsData.GetAll();
+                if(ReservedFlights == null)
+                {
+                    return RedirectToPage("/BookingNotFound");
+                }
+                else
+                {
+                    return Page();
+                }
             }
             else
             {

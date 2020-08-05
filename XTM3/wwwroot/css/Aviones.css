@@ -1,6 +1,6 @@
 ﻿html, body {
     color: white;
-    background-color: #1F044D;
+    background-color: #89abcd;
     height: 100%;
     width: 100%;
     font-family: 'Barlow';
@@ -30,22 +30,53 @@ a {
     border-color: #1861ac;
 }
 
-table {
-    color: white;
-    border: hidden;
-    border-radius: 10px;
-    background-color: indigo;
-    padding: 20px;
-    width: 200px;
-    height: 150px;
-}
+
 
 .zone {
     cursor: pointer;
-    background-color: #300552;
+    background-color: #4086ce;
     text-align: center;
     font-size: 15px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: hidden;
     margin: 5px;
 }
+
+.bigZone {
+    background-color: #4086ce;
+    margin: 10px;
+}
+
+.bigContainer {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto
+}
+
+@media screen and (max-width:1200px) {
+
+    .bigContainer {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto
+    }
+}
+
+
+@media screen and (max-width:600px){
+
+    .bigContainer {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto
+    }
+
+
+}
+
+
+
+

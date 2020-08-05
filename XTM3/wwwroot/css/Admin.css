@@ -1,6 +1,6 @@
 ﻿html, body {
     color: white;
-    background-color: #1F044D;
+    background-color: #89abcd;
     height: 100%;
     width: 100%;
     font-family: 'Barlow';
@@ -33,13 +33,15 @@ a {
 
 .zone {
     cursor: pointer;
-    background-color: #300552;
+    background-color: #4086ce;
     text-align: center;
     font-size: 15px;
     border-radius: 5px;
     border: hidden;
     margin: 5px;
 }
+
+
 
 .item {
     color: white;

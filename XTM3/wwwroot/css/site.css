@@ -1,6 +1,6 @@
 ﻿html, body {
     color: white;
-    background-color: #1F044D;
+    background-color: #89abcd;
     height: 100%;
     width: 100%;
     font-family: 'Barlow';
@@ -59,15 +59,13 @@ a {
     v   v   v   v   v   v   v   v   v   v   v   v   v
 */
 
-.footer {
+#footer {
     height: 40px;
     color: black;
     background-color: white;
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
     align-content: center;
-    vertical-align: central;
-    margin-top: 60px;
 }

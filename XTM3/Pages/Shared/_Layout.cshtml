@@ -34,6 +34,9 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/PlanesPages/OurPlanes">Our Planes</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/AdminPages/AdminPage">Clients</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/AdminPages/AdminPage">Admins</a>
                         </li>
                     </ul>
@@ -42,14 +45,18 @@
         </nav>
     </header>
 
-    <div class="container" style="position:center;">
-        <main role="main" class="container pb-3 h-100" style="margin-bottom:40px;">
+
+
+    <div class="container h-100" style="position:center;">
+        <main role="main" class="container pb-3" style="margin-bottom:40px;">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="footer justify-content-center align-content-center">
-        <div class="container h-100" style=" text-align: center;">
+
+
+    <footer id="footer">
+        <div class="container" style=" text-align: center;">
             <h5><span>   2020   |   XTM   | <a asp-area="" asp-page="/Privacy">Privacy</a></span></h5>
         </div>
     </footer>

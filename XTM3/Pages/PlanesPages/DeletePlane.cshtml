@@ -5,7 +5,7 @@
 }
 
 <head>
-    <link rel="stylesheet" href="~/css/Planes.css" />
+    <link rel="stylesheet" href="~/css/Aviones.css" />
 </head>
 <body style="margin-bottom: 60px;">
     <div>
@@ -15,29 +15,29 @@
 
     <div class="container h-100">
 
-        <div class="container w-100" style="display:grid; grid-gap:10px;grid-template-columns: 1fr 1fr;grid-template-rows:auto">
+        <div class="container bigContainer">
 
 
             @foreach (var plane in Model.Planes)
             {
                 <form method="post">
-                    <div class="container">
+                    <div class="container zone">
                         <div class="row">
 
-                            <div class="col zone" style="background-color: #300552;">
+                            <div class="col zone">
 
-                                <div class="row justify-content-center align-content-center" style="padding:10px">
+                                <div class="row justify-content-center align-content-center" style="margin: 10px;">
                                     @if (plane.PlaneType.Equals("Gold"))
                                     {
-                                        <i class="fas fa-plane" style="color: gold;font-size: 40px;margin-top: 10px;"></i>
+                                        <i class="fas fa-plane" style="color: gold;font-size: 40px;"></i>
                                     }
                                     @if (plane.PlaneType.Equals("Silver"))
                                     {
-                                        <i class="fas fa-plane" style="color: silver;font-size: 40px;margin-top: 10px;"></i>
+                                        <i class="fas fa-plane" style="color: silver;font-size: 40px;"></i>
                                     }
                                     @if (plane.PlaneType.Equals("Bronze"))
                                     {
-                                        <i class="fas fa-plane" style="color: saddlebrown;font-size: 40px;margin-top: 10px;"></i>
+                                        <i class="fas fa-plane" style="color: saddlebrown;font-size: 40px;"></i>
                                     }
                                 </div>
                                 <div class="row justify-content-center">
