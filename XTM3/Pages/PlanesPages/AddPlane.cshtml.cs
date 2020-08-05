@@ -56,18 +56,28 @@ namespace XTM3.Pages.PlanesPages
                     }
                     else
                     {
+                        var planes = avionData.GetAll();
+                        var lastPlane = planes.Last<Avion>();
+
+                        avionData.Delete(lastPlane.PlaneID);
+
                         return RedirectToPage("/PlanesPages/AvionNotFound");
                     }
                 }
-                else if (Cancel != null)
+
+                if (Cancel != null)
                 {
                     return RedirectToPage("/Index");
                 }
 
                 return RedirectToPage("/PlanesPages/AvionNotFound");
             }
-            else
+            else 
             {
+                if (Cancel != null)
+                {
+                    return RedirectToPage("/Index");
+                }
                 return RedirectToPage("/NotFound");
             }
         }

@@ -1,0 +1,80 @@
+﻿@page
+@model XTM3.Pages.ClientPages.OurClientsModel
+@{
+    ViewData["Title"] = "XTM - Our Clients";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Aviones.css" />
+</head>
+<body style="margin-bottom: 60px;">
+    <div>
+        <h3 style="color:white">Greetings terricola!</h3>
+        <h5 style="color:white">These are our clients:</h5>
+    </div>
+
+    <div class="container h-100">
+
+        <br />
+
+        <form method="get">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="search" class="form-control" asp-for="SearchTerm" placeholder="Ingresa Nombre o ID para buscar aviones especificos." />
+                </div>
+            </div>
+        </form>
+
+
+        <br />
+        <div class="container h-100">
+
+            <div class="container bigContainer">
+
+
+                @foreach (var client in Model.Clients)
+                {
+                        <div class="container zone">
+                            <div class="row">
+
+                                <div class="col zone">
+
+                                    <div class="row justify-content-center align-content-center" style="font-size: 40px;margin: 10px;">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <h6>Client ID: @client.UserID</h6>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <h6>Last Name: @client.LastName</h6>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <h6>Name: @client.FirstName</h6>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <h6>Age: @client.Age</h6>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <h6>Location: @client.Location</h6>
+                                    </div>
+
+                                    
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                }
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+</body>

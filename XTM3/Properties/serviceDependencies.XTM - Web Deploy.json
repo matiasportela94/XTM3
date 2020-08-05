@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroup2')]/providers/Microsoft.Sql/servers/xtm3dbserver/databases/XTM3_db",
+      "type": "mssql.azure",
+      "connectionId": "XTMDatabase",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}

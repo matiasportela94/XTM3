@@ -1,0 +1,76 @@
+﻿@page
+@model XTM3.Pages.BookingsPages.DeleteMyBookingsModel
+@{
+    ViewData["Title"] = "XTM - Delete Booking";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Aviones.css" />
+</head>
+<body style="margin-bottom: 60px;">
+    <div>
+        <h3 style="color:white">Hey!</h3>
+        <h5 style="color:white">Select the plane you want to delete</h5>
+    </div>
+
+    <div class="container h-100">
+
+        <div class="container w-100 bigContainer">
+
+
+            @foreach (var booking in Model.Bookings)
+            {
+                <form method="post">
+                    <div class="row container bigZone">
+
+                        <div class="col zone justify-content-center align-content-center">
+                            <div class="col container" style="font-size:30px;">
+                                <i class="far fa-bookmark"></i>
+                            </div>
+
+                            <div>
+                                <h6>Booking ID: @booking.BookingID</h6>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <h6>User ID: @booking.UserID</h6>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <h6>Passengers: @booking.Passengers</h6>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <h6>Date: @booking.Date</h6>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <h6>Origin: @booking.OriginCity</h6>
+                            </div>
+
+                            <div class="row justify-content-center">
+                                <h6>Origin: @booking.DestinyCity</h6>
+                            </div>
+
+
+                            <div class="form-group row justify-content-center"><input type="radio" asp-for="@Model.SelectedBookingID" value="@booking.BookingID" style="margin-top:6px;" /></div>
+                            <div class="form-group row justify-content-center"><input type="submit" role="button" value="Delete Booking" class="btn btn-light border-0" /></div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                </form>
+            }
+
+        </div>
+
+
+    </div>
+
+
+
+</body>

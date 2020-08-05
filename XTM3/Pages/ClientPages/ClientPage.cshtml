@@ -1,0 +1,75 @@
+﻿@page
+@model XTM3.Pages.ClientPages.ClientPageModel
+@{
+
+    ViewData["Title"] = "XTM - Clients";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Admin.css" />
+</head>
+<body>
+    <div class="row">
+        <div class="col">
+            <h3>Hello User!</h3>
+        </div>
+    </div>
+
+    <div class="container">
+       
+        <div class="row h-50">
+
+            <div class="col zone">
+                <div class="row item justify-content-center align-content-center">
+                    <i class="fas fa-plane-departure"></i>
+                </div>
+                <div class="row">
+                    <a asp-page="/BookingsPages/BookingsPage" class="col" style="font-size:25px;color:black;">Book Flight</a>       <!--**********DONE**********-->
+                </div>
+                <div class="row justify-content-center align-content-center">
+                    <p>Make a reservation</p>
+                </div>
+            </div>
+
+            <div class="col zone">
+                <div class="row item justify-content-center align-content-center">
+                    <i class="fas fa-plane-slash"></i>
+                </div>
+                <div class="row">
+                    <a asp-page="/BookingsPages/DeleteBooking" class="col" style="font-size:25px;color:black;">Cancel Booking</a>  <!--**********DONE**********-->
+                </div>
+                <div class="row justify-content-center align-content-center">
+                    <p>Cancel Flights</p>
+                </div>
+            </div>
+
+            <div class="col zone">
+                <div class="row item justify-content-center align-content-center">
+                    <i class="far fa-calendar-alt"></i>
+                </div>
+                <div class="row">
+                    <a asp-page="/BookingsPages/MyBookings" class="col" style="font-size:25px;color:black;">Bookings</a> <!--**********DONE**********-->
+                </div>
+                <div class="row justify-content-center align-content-center">
+                    <p>List Flights</p>
+                </div>
+            </div>
+
+            <div class="col zone">
+                <div class="row item justify-content-center align-content-center">
+                    <i class="fas fa-user-edit"></i>
+                </div>
+                <div class="row">
+                    <a asp-page="/ClientPages/EditClient" class="col" style="font-size:25px;color:black;">Edit Profile</a>  <!--**********DONE**********-->
+                </div>
+                <div class="row justify-content-center align-content-center">
+                    <p>Edit your information</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  
+
+
+</body>

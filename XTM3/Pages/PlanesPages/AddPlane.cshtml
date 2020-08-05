@@ -9,90 +9,91 @@
 </head>
 
 <body>
-    <div>
-        <h3 style="color:white">Greetings terricola!</h3>
-        <h4 style="color:white">Complete the following form in order to make a reservation.</h4>
-    </div>
-
-
-    <form method="post">
-
-        <div asp-validation-summary="All">
-            <div class="form-group">
-                <label asp-for="@Model.NewPlane.PlaneType" class="control-label">Enter Plane Type (Gold/Silver/Bronze):</label>
-                <select asp-for="@Model.NewPlane.PlaneType" placeholder="Plane Type" class="form-control">
-                    <option>Plane Type</option>
-                    <option>Gold</option>
-                    <option>Silver</option>
-                    <option>Bronze</option>
-                </select>
-                <span class="text-danger" asp-validation-for="@Model.NewPlane.PlaneType"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="@Model.NewPlane.PlaneName" class="control-label">Enter Plane Name:</label>
-                <input asp-for="@Model.NewPlane.PlaneName" placeholder="Name" class="form-control" />
-                <span class="text-danger" asp-validation-for="@Model.NewPlane.PlaneName"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="@Model.NewPlane.FuelCapacity" class="control-label">Enter Fuel Capacity:</label>
-                <input asp-for="@Model.NewPlane.FuelCapacity" placeholder="Number of Passengers" class="form-control" min="1" pattern="^[0-9]+" />
-                <span class="text-danger" asp-validation-for="@Model.NewPlane.FuelCapacity"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="@Model.NewPlane.KmCost" class="control-label">Enter Cost per Km:</label>
-                <input asp-for="@Model.NewPlane.KmCost" class="form-control" min="1" pattern="^[0-9]+" />
-                <span class="text-danger" asp-validation-for="@Model.NewPlane.KmCost"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="@Model.NewPlane.PassengerCapacity" class="control-label">Enter Passenger Capacity:</label>
-                <input asp-for="@Model.NewPlane.PassengerCapacity" class="form-control" min="1" pattern="^[0-9]+" />
-                <span class="text-danger" asp-validation-for="@Model.NewPlane.PassengerCapacity"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="@Model.NewPlane.MaxVelocity" class="control-label">Enter Maximum Velocity:</label>
-                <input asp-for="@Model.NewPlane.MaxVelocity" class="form-control" min="1" pattern="^[0-9]+" />
-                <span class="text-danger" asp-validation-for="@Model.NewPlane.MaxVelocity"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="@Model.NewPlane.PropulsionType" class="control-label">Enter Propulsion:</label>
-                <select asp-for="@Model.NewPlane.PropulsionType" class="form-control" asp-items="@Model.Propulsions">
-                    <option>Choose Planes' Propulsion Type</option>
-                </select>
-                <span class="text-danger" asp-validation-for="@Model.NewPlane.PropulsionType"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="@Model.NewPlane.Catering" class="control-label">Catering:</label>
-                <p>
-                    <input type="radio" asp-for="@Model.NewPlane.Catering" value="true" class="form-control" style="height:15px ; width:15px">Yes
-                    <input type="radio" asp-for="@Model.NewPlane.Catering" value="false" class="form-control" style="height:15px ; width:15px"> No
-                </p>
-                <span class="text-danger" asp-validation-for="@Model.NewPlane.Catering"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="@Model.NewPlane.Wifi" class="control-label">Wi-Fi:</label>
-                <input type="radio" asp-for="@Model.NewPlane.Wifi" value="true" class="form-control" style="height:15px ; width:15px">Yes
-                <input type="radio" asp-for="@Model.NewPlane.Wifi" value="false" class="form-control" style="height:15px ; width:15px">No
-                <span class="text-danger" asp-validation-for="@Model.NewPlane.Wifi"></span>
-            </div>
-
+        <div>
+            <h3 style="color:white">Greetings terricola!</h3>
+            <h4 style="color:white">Complete the following form in order to make a reservation.</h4>
         </div>
 
+        <div class="container h-100">
+            <form method="post">
 
-        <div class="form-group">
-            <input type="submit" role="button" value="Confirm" asp-for="@Model.Submit" class="btn btn-primary" />
-            <input type="submit" role="button" value="Cancel" asp-for="@Model.Cancel" class="btn btn-primary" /> <!--CANCEL BUTTON, elimina la reserva hecha-->
+                <div asp-validation-summary="All">
+                    <div class="form-group">
+                        <label asp-for="@Model.NewPlane.PlaneType" class="control-label">Enter Plane Type (Gold/Silver/Bronze):</label>
+                        <select asp-for="@Model.NewPlane.PlaneType" placeholder="Plane Type" class="form-control">
+                            <option>Plane Type</option>
+                            <option>Gold</option>
+                            <option>Silver</option>
+                            <option>Bronze</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="@Model.NewPlane.PlaneType"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.NewPlane.PlaneName" class="control-label">Enter Plane Name:</label>
+                        <input asp-for="@Model.NewPlane.PlaneName" placeholder="Name" class="form-control" />
+                        <span class="text-danger" asp-validation-for="@Model.NewPlane.PlaneName"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.NewPlane.FuelCapacity" class="control-label">Enter Fuel Capacity:</label>
+                        <input asp-for="@Model.NewPlane.FuelCapacity" placeholder="Number of Passengers" class="form-control" min="1" pattern="^[0-9]+" />
+                        <span class="text-danger" asp-validation-for="@Model.NewPlane.FuelCapacity"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.NewPlane.KmCost" class="control-label">Enter Cost per Km:</label>
+                        <input asp-for="@Model.NewPlane.KmCost" class="form-control" min="1" pattern="^[0-9]+" />
+                        <span class="text-danger" asp-validation-for="@Model.NewPlane.KmCost"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.NewPlane.PassengerCapacity" class="control-label">Enter Passenger Capacity:</label>
+                        <input asp-for="@Model.NewPlane.PassengerCapacity" class="form-control" min="1" pattern="^[0-9]+" />
+                        <span class="text-danger" asp-validation-for="@Model.NewPlane.PassengerCapacity"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.NewPlane.MaxVelocity" class="control-label">Enter Maximum Velocity:</label>
+                        <input asp-for="@Model.NewPlane.MaxVelocity" class="form-control" min="1" pattern="^[0-9]+" />
+                        <span class="text-danger" asp-validation-for="@Model.NewPlane.MaxVelocity"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.NewPlane.PropulsionType" class="control-label">Enter Propulsion:</label>
+                        <select asp-for="@Model.NewPlane.PropulsionType" class="form-control" asp-items="@Model.Propulsions">
+                            <option>Choose Planes' Propulsion Type</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="@Model.NewPlane.PropulsionType"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.NewPlane.Catering" class="control-label">Catering:</label>
+                        <p>
+                            <input type="radio" asp-for="@Model.NewPlane.Catering" value="true" class="form-control" style="height:15px ; width:15px">Yes
+                            <input type="radio" asp-for="@Model.NewPlane.Catering" value="false" class="form-control" style="height:15px ; width:15px"> No
+                        </p>
+                        <span class="text-danger" asp-validation-for="@Model.NewPlane.Catering"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="@Model.NewPlane.Wifi" class="control-label">Wi-Fi:</label>
+                        <input type="radio" asp-for="@Model.NewPlane.Wifi" value="true" class="form-control" style="height:15px ; width:15px">Yes
+                        <input type="radio" asp-for="@Model.NewPlane.Wifi" value="false" class="form-control" style="height:15px ; width:15px">No
+                        <span class="text-danger" asp-validation-for="@Model.NewPlane.Wifi"></span>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <input type="submit" role="button" value="Confirm" asp-for="@Model.Submit" class="btn btn-primary" />
+                    <input type="submit" role="button" value="Cancel" asp-for="@Model.Cancel" class="btn btn-primary" /> <!--CANCEL BUTTON, elimina la reserva hecha-->
+                </div>
+
+
+
+            </form>
+
         </div>
-
-
-
-    </form>
-
 </body>

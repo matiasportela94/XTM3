@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTM3", "XTM3\XTM3.csproj", "{9920AB79-5BEF-4A29-ACC8-D6EF412B35FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XTM3", "XTM3\XTM3.csproj", "{9920AB79-5BEF-4A29-ACC8-D6EF412B35FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTMCore", "XTMCore\XTMCore.csproj", "{433C7018-43F8-4E92-8918-A891F0E30484}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XTMCore", "XTMCore\XTMCore.csproj", "{433C7018-43F8-4E92-8918-A891F0E30484}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTMData", "XTMData\XTMData.csproj", "{2417C830-493F-40E4-96A7-8D4D9F7C644E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XTMData", "XTMData\XTMData.csproj", "{2417C830-493F-40E4-96A7-8D4D9F7C644E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

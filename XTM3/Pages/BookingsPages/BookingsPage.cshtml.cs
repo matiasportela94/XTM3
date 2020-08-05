@@ -14,6 +14,7 @@ namespace XTM3.Pages.BookingsPages
     {
 
         private readonly IBookingData bookingsData;
+        private readonly IClientData clientData;
         private readonly IHtmlHelper htmlHelper;
 
         public IEnumerable<SelectListItem> Origins;
@@ -27,9 +28,10 @@ namespace XTM3.Pages.BookingsPages
                                                              //2) EN CASO DE CONFIRMARSE LA RESERVA SE USARIA PARA ANADIR LOS DATOS A LA BASE DE DATOS
 
 
-        public BookingsPageModel(IBookingData bookingsData, IHtmlHelper htmlHelper)
+        public BookingsPageModel(IBookingData bookingsData, IClientData clientData, IHtmlHelper htmlHelper)
         {
             this.bookingsData = bookingsData;
+            this.clientData = clientData;
             this.htmlHelper = htmlHelper;
         }
 
@@ -46,19 +48,24 @@ namespace XTM3.Pages.BookingsPages
         {
             if (ModelState.IsValid)
             {
-                if (PendingReservation.OriginCity.Equals(PendingReservation.DestinyCity))
+                if (PendingReservation.OriginCity.Equals(PendingReservation.DestinyCity) || PendingReservation.OriginCity.Equals(Ciudad.NONE) || PendingReservation.OriginCity.Equals(Ciudad.NONE))
                 {
                     return RedirectToPage("/BookingsPages/BookingsPage");
                 }
                 else
                 {
-                    //VALIDAR ID USUARIO, SI EXISTE RESERVA
-                    PendingReservation.PlaneID = 0;
-                    PendingReservation.Price = 0.00;
-                    bookingsData.Add(PendingReservation);
-                    bookingsData.Commit();
-                    //SI NO EXISTE VUELVE A INDEX (SI PUEDO PONER UN MENSAJE DE ERROR MEJOR)
+                    if(clientData.GetClientsByID(PendingReservation.UserID) != null)
+                    {
+                        PendingReservation.PlaneID = 0;
+                        PendingReservation.Price = 0.00;
+                        bookingsData.Add(PendingReservation);
+                        bookingsData.Commit();
+                        return RedirectToPage("/PlanesPages/SelectPlane");
+                    }
+
                     return RedirectToPage("/PlanesPages/SelectPlane");
+                    //SI NO EXISTE VUELVE A INDEX (SI PUEDO PONER UN MENSAJE DE ERROR MEJOR)
+
                 }
 
             }

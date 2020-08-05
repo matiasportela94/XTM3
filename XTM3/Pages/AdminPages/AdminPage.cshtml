@@ -5,9 +5,14 @@
     ViewData["Title"] = "XTM - Admin";
 }
 
-<head>
-    <link rel="stylesheet" href="~/css/Admin.css" />
-</head>
+    <head>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <!--CSS Stylesheet-->
+        <link rel="stylesheet" href="~/css/Admin.css" />
+        <!--FontAwesome Icons script-->
+        <script src="https://kit.fontawesome.com/cdd646e436.js" crossorigin="anonymous"></script>
+
+    </head>
 <body>
     <div class="row">
         <div class="col">
@@ -38,7 +43,7 @@
                     <i class="fas fa-list"></i>
                 </div>
                 <div class="row">
-                    <a asp-page="/BookingsPages/BookingsPage" class="col" style="font-size:25px;color:black;">Clients</a> <!--NEW PAGE ALL CLIENTS-->
+                    <a asp-page="/ClientPages/OurClients" class="col" style="font-size:25px;color:black;">Clients</a> <!--**********DONE**********-->
                 </div>
                 <div class="row justify-content-center align-content-center">
                     <p>List Clients</p>
@@ -67,25 +72,13 @@
 
             <div class="col zone">
                 <div class="row item justify-content-center align-content-center">
-                    <i class="fas fa-plane"></i>
-                </div>
-                <div class="row">
-                    <a asp-page="/PlanesPages/AddPlane" class="col" style="font-size:25px;color:black;">Add Plane</a>       <!--**********DONE**********-->
-                </div>
-                <div class="row justify-content-center align-content-center">
-                    <p>Add Plane to Database</p>
-                </div>
-            </div>
-
-            <div class="col zone">
-                <div class="row item justify-content-center align-content-center">
                     <i class="fas fa-plane-departure"></i>
                 </div>
                 <div class="row">
-                    <a asp-page="/PlanesPages/DeletePlane" class="col" style="font-size:25px;color:black;">Delete Plane</a>       <!--**********DONE**********-->
+                    <a asp-page="/BookingsPages/BookingsPage" class="col" style="font-size:25px;color:black;">Book Flight</a>       <!--**********DONE**********-->
                 </div>
                 <div class="row justify-content-center align-content-center">
-                    <p>Delete planes</p>
+                    <p>Make a reservation</p>
                 </div>
             </div>
 
@@ -103,13 +96,25 @@
 
             <div class="col zone">
                 <div class="row item justify-content-center align-content-center">
-                    <i class="fas fa-plane-departure"></i>
+                    <i class="fas fa-plane"></i>
                 </div>
                 <div class="row">
-                    <a asp-page="/BookingsPages/BookingsPage" class="col" style="font-size:25px;color:black;">Book Flight</a>       <!--**********DONE**********-->
+                    <a asp-page="/PlanesPages/AddPlane" class="col" style="font-size:25px;color:black;">Add Plane</a>       <!--**********DONE**********-->
                 </div>
                 <div class="row justify-content-center align-content-center">
-                    <p>Make a reservation</p>
+                    <p>Add Plane to Database</p>
+                </div>
+            </div>
+
+            <div class="col zone">
+                <div class="row item justify-content-center align-content-center">
+                    <i class="fas fa-ban"></i>
+                </div>
+                <div class="row">
+                    <a asp-page="/PlanesPages/DeletePlane" class="col" style="font-size:25px;color:black;">Delete Plane</a>       <!--**********DONE**********-->
+                </div>
+                <div class="row justify-content-center align-content-center">
+                    <p>Delete planes</p>
                 </div>
             </div>
 
@@ -128,7 +133,7 @@
                     <i class="fas fa-user-plus"></i>
                 </div>
                 <div class="row">
-                    <a asp-page="/ClientsPages/AddClient" class="col" style="font-size:25px;color:black;">Add Client</a>
+                    <a asp-page="/ClientPages/AddClient" class="col" style="font-size:25px;color:black;">Add Client</a> <!--**********DONE**********-->
                 </div>
                 <div class="row justify-content-center align-content-center">
                     <p>Add Client to Database</p>
@@ -140,7 +145,7 @@
                     <i class="fas fa-user-minus"></i>
                 </div>
                 <div class="row">
-                    <a asp-page="/ClientsPages/AddClient" class="col" style="font-size:25px;color:black;">Delete Client</a>
+                    <a asp-page="/ClientPages/DeleteClient" class="col" style="font-size:25px;color:black;">Delete Client</a> <!--**********DONE**********-->
                 </div>
                 <div class="row justify-content-center align-content-center">
                     <p>Erase a Client from Database</p>
@@ -152,7 +157,7 @@
                     <i class="fas fa-user-edit"></i>
                 </div>
                 <div class="row">
-                    <a asp-page="/ClientsPages/AddClient" class="col" style="font-size:25px;color:black;">Edit Client</a>
+                    <a asp-page="/ClientPages/EditClient" class="col" style="font-size:25px;color:black;">Edit Client</a> <!--**********DONE**********-->
                 </div>
                 <div class="row justify-content-center align-content-center">
                     <p>Edit Client in Database</p>

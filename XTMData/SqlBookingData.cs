@@ -113,6 +113,16 @@ namespace XTMData
             return flightPrice;
         }
 
-     
+        public IEnumerable<Booking> GetUserIDBookings(int userID)
+        {
+            var query = from b in db.Bookings
+                        where (b.UserID == userID)
+                        orderby b.BookingID
+                        select b;
+            return query;
+        }
+
+        
+
     }
 }

@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <!--FontAwesome Icons script-->
     <script src="https://kit.fontawesome.com/cdd646e436.js" crossorigin="anonymous"></script>
-    <!--link tipografia-->
-    <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -34,7 +33,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/PlanesPages/OurPlanes">Our Planes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AdminPages/AdminPage">Clients</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/ClientPages/ClientPage">Clients</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/AdminPages/AdminPage">Admins</a>
@@ -47,15 +46,15 @@
 
 
 
-    <div class="container h-100" style="position:center;">
-        <main role="main" class="container pb-3" style="margin-bottom:40px;">
+    <div class="container h-100" style="position:center;margin-bottom:40px;">
+        <main role="main" class="container h-100" style="position:center;margin-bottom:100px;">
             @RenderBody()
         </main>
     </div>
 
 
-
-    <footer id="footer">
+    
+    <footer class="footer container-fluid position-fixed w-100">
         <div class="container" style=" text-align: center;">
             <h5><span>   2020   |   XTM   | <a asp-area="" asp-page="/Privacy">Privacy</a></span></h5>
         </div>

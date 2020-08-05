@@ -26,10 +26,10 @@ namespace XTM3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<XTMDbContext>(options => {
-                options.UseSqlServer(Configuration.GetConnectionString("XTMDb"));
+                options.UseSqlServer(Configuration.GetConnectionString("XTMDatabase"));
             });
 
-
+            services.AddScoped<IClientData, SqlClientData>();
             services.AddScoped<IAvionData, SqlPlaneData>();
             services.AddScoped<IBookingData, SqlBookingData>();
 

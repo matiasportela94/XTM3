@@ -3,7 +3,9 @@
     background-color: #89abcd;
     height: 100%;
     width: 100%;
-    font-family: 'Barlow';
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 40px;
+    font-weight: 400;
 }
 
 
@@ -76,7 +78,4 @@ a {
 
 
 }
-
-
-
 

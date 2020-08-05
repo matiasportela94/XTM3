@@ -1,9 +1,8 @@
 {
   "dependencies": {
-    "mssql1": {
-      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroup')]/providers/Microsoft.Sql/servers/xtm3server/databases/UserDatabase",
-      "type": "mssql.azure",
-      "connectionId": "UserDatabase",
+    "mssql2": {
+      "type": "mssql.local",
+      "connectionId": "XTMDatabase",
       "secretStore": "LocalSecretsFile"
     }
   }
