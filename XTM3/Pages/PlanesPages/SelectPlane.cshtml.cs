@@ -37,18 +37,11 @@ namespace XTM3.Pages.PlanesPages
 
         public IActionResult OnGet()
         {
-           
-            ReservedFlights = bookingsData.GetAll();
-            PendingBooking = ReservedFlights.Last<Booking>();
-            if (PendingBooking != null)
+            Planes = planesData.GetAll();
+
+            if (Planes != null)
             {
-
-                Planes = planesData.GetAllHabilitados(PendingBooking.Date, PendingBooking.Passengers, planesData.GetAll(), ReservedFlights);
-                SelectedPlane = new Avion();
-
                 return Page();
-
-
             }
             else
             {
