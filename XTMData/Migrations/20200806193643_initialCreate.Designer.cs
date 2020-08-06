@@ -9,7 +9,7 @@ using XTMData;
 namespace XTMData.Migrations
 {
     [DbContext(typeof(XTMDbContext))]
-    [Migration("20200805211215_initialCreate")]
+    [Migration("20200806193643_initialCreate")]
     partial class initialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

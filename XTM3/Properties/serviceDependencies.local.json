@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "mssql2": {
+      "resourceId": null,
       "type": "mssql.local",
       "connectionId": "XTMDatabase",
       "secretStore": "LocalSecretsFile"

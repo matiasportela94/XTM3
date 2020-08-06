@@ -42,6 +42,8 @@ namespace XTM3.Pages.BookingsPages
 
         public IActionResult OnPost()
         {
+            Bookings = bookingData.GetAll();
+            pendingBooking = Bookings.Last<Booking>();
             if (ModelState.IsValid)
             {
                 if (Submit != null)
@@ -54,10 +56,12 @@ namespace XTM3.Pages.BookingsPages
                     return RedirectToPage("/BookingsPages/BookingsPage");
                 }
 
+                bookingData.Delete(pendingBooking.BookingID);
                 return RedirectToPage("/NotFound");
             }
             else
             {
+                bookingData.Delete(pendingBooking.BookingID);
                 return Page();
             }
         }

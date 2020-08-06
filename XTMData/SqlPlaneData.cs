@@ -4,6 +4,7 @@ using System.Text;
 using System.Linq;
 using XTMCore;
 using Microsoft.EntityFrameworkCore;
+using System.Numerics;
 
 namespace XTMData
 {
@@ -142,8 +143,51 @@ namespace XTMData
             return query;
         }
 
-       
-        
 
+
+
+        
+        public IEnumerable<Avion> GetAllHabilitados(string Date, int Passengers, IEnumerable<Avion> Planes, IEnumerable<Booking> Bookings)
+        {
+            SetAllHabilitados(Date, Planes, Bookings);
+
+            var query = from p in Planes
+                        where (p.Available == true && Passengers <= p.PassengerCapacity)
+                        orderby p.PlaneID
+                        select p;
+            return query;
+
+
+        }
+
+        public void SetAllHabilitados(string Date, IEnumerable<Avion> Planes, IEnumerable<Booking> Bookings)
+        {
+          
+
+            if (Planes != null && Bookings != null)
+            {
+
+                foreach (var plane in Planes)
+                {
+                    foreach (var booking in Bookings)
+                    {
+                        if (Date.Equals(booking.Date) && booking.PlaneID == plane.PlaneID)
+                        {
+                            plane.Available = false;
+                            break;
+                        }
+                        else
+                        {
+                            plane.Available = true;
+                            continue;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+       
     }
 }

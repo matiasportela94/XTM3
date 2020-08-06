@@ -54,7 +54,9 @@ namespace XTM3.Pages.BookingsPages
                 }
                 else
                 {
-                    if(clientData.GetClientsByID(PendingReservation.UserID) != null)
+                    var client = clientData.GetClientsByID(PendingReservation.UserID);
+
+                    if (client != null)
                     {
                         PendingReservation.PlaneID = 0;
                         PendingReservation.Price = 0.00;

@@ -32,15 +32,30 @@ namespace XTM3.Pages.PlanesPages
             this.planesData = planesData;
             this.bookingsData = bookingsData;
             this.PendingBooking = new Booking();
+            this.SelectedPlaneID = 0;
         }
 
         public IActionResult OnGet()
         {
-            Planes = planesData.GetAll();
-            
-            SelectedPlane = new Avion();
+           
+            ReservedFlights = bookingsData.GetAll();
+            PendingBooking = ReservedFlights.Last<Booking>();
+            if (PendingBooking != null)
+            {
 
-            return Page();
+                Planes = planesData.GetAllHabilitados(PendingBooking.Date, PendingBooking.Passengers, planesData.GetAll(), ReservedFlights);
+                SelectedPlane = new Avion();
+
+                return Page();
+
+
+            }
+            else
+            {
+                return RedirectToPage("/AvionNotFound");
+            }
+
+
         }
 
         public IActionResult OnPost()

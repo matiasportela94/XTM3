@@ -18,6 +18,13 @@
         <form method="post">
 
             <div asp-validation-summary="All">
+
+                <div class="form-group">
+                    <label asp-for="@Model.NewClient.UserID" class="control-label">Enter your ID:</label>
+                    <input asp-for="@Model.NewClient.UserID" placeholder="First Name" class="form-control" />
+                    <span class="text-danger" asp-validation-for="@Model.NewClient.UserID"></span>
+                </div>
+
                 <div class="form-group">
                     <label asp-for="@Model.NewClient.FirstName" class="control-label">Enter First Name:</label>
                     <input asp-for="@Model.NewClient.FirstName" placeholder="First Name" class="form-control" />
