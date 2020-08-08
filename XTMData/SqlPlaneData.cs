@@ -17,17 +17,37 @@ namespace XTMData
             this.db = db;
         }
 
+
+        /**
+        * Summary:
+        *      El metodo recibe un objeto de tipo Avion (una nuevo avion) y lo agrega a la base de datos.
+        *
+        * **/
+
         public Avion Add(Avion newPlane)
         {
             db.Add(newPlane);
             return newPlane;
         }
 
+        /**
+       * Summary:
+       *      El metodo guarda los cambios realizados en la base de datos.
+       *
+       * **/
+
         public int Commit()
         {
             return db.SaveChanges();
 
         }
+
+        /**
+       * Summary:
+       *      El metodo recibe el ID de un avion(int), este parametro es utilizado para buscar el Avion en la base de datos.
+       *      Si es encontrad, es eliminado de la base de datos.
+       *
+       * **/
 
         public Avion Delete(int planeID)
         {
@@ -39,10 +59,24 @@ namespace XTMData
             return plane;
         }
 
+
+        /**
+        * Summary:
+        *      El metodo busca y retorna un avion por id. Si no lo encuentra devuelve null.
+        *      
+        * **/
+
         public Avion GetPlanesByID(int planeID)
         {
             return db.Planes.Find(planeID);
         }
+
+
+        /**
+        * Summary:
+        *      El metodo retorna todos los Aviones guardados en la base de datos. Si no hay elementos, devuelve null.
+        *
+        * **/
 
         public IEnumerable<Avion> GetAll()
         {
@@ -52,15 +86,40 @@ namespace XTMData
             return query;
         }
 
+        /**
+        * Summary:
+        *      El metodo recibe un string, el cual puede ser el nombre o el ID de un Avion. Este es comparado con el ID y los nombres de los Aviones
+        *      que estan guardados en la base de datos.
+        *      Retorna todos los aviones cuyos IDs o Nombres contengan los caracteres del string.
+        *      
+        *      Por ejempo: 
+        *      string planeIDOrName = "15"
+        *
+        *   Retornara todos los Aviones cuyo ID contengan 15 (ID=15;ID=115;ID=151;ID=152;ID=1500;...)
+        *   
+        *       string planeIDOrName = "Avion"
+        *       
+        *   y/o todos los aviones cuyo nombre contenga "avion" (Nombre="Avioncito";Nombre="Avionazo";Nombre="Avion";...)
+        *   
+        *   
+        **/
 
-        public IEnumerable<Avion> GetPlanesByNameOrID(string planeID)
+        public IEnumerable<Avion> GetPlanesByNameOrID(string planeIDOrName)
         {
             var query = from p in db.Planes
-                        where (p.PlaneID.ToString().Contains(planeID) || p.PlaneName.Contains(planeID))
+                        where (p.PlaneID.ToString().Contains(planeIDOrName) || p.PlaneName.Contains(planeIDOrName))
                         orderby p.PlaneID
                         select p;
             return query;
         }
+
+
+        /**
+        * Summary:
+        *      El metodo retorna una Lista con todas las propulsiones del Enum Propulsion
+        *   
+        *   
+        **/
 
         public List<Propulsion> GetPropulsions()
         {
@@ -74,10 +133,11 @@ namespace XTMData
             return propulsions;
         }
 
-        public bool IsPlane(int planeID)
-        {
-            throw new NotImplementedException();
-        }
+        /**
+      * Summary:
+      *      El metodo recibe un objeto de tipo Avion, el cual es enviado al metodo Attach(Avion avion), el cual actualiza los datos de un Avion que ya esta en la base de datos.
+      * **/
+
 
         public Avion Update(Avion updatedPlane)
         {
@@ -86,52 +146,11 @@ namespace XTMData
             return updatedPlane;
         }
 
-        public Avion SetPlaneID(Avion avion)
-        {
-            var updatePlane = avion;
 
-            if (updatePlane.PlaneType.Equals("Gold"))
-            {
-                var goldPlanes = GetPlanesByType("Gold");
-                if (goldPlanes.Count() == 0)
-                {
-                    updatePlane.PlaneID = 1000;
-                }
-                else
-                {
-                    var lastPlane = goldPlanes.Last<Avion>();
-                    updatePlane.PlaneID = lastPlane.PlaneID + 1;
-                }
-            }
-            else if (updatePlane.PlaneType.Equals("Silver"))
-            {
-                var silverPlanes = GetPlanesByType("Silver");
-                if (silverPlanes.Count() == 0)
-                {
-                    updatePlane.PlaneID = 2000;
-                }
-                else
-                {
-                    var lastPlane = silverPlanes.Last<Avion>();
-                    updatePlane.PlaneID = lastPlane.PlaneID + 1;
-                }
-            }
-            else if (updatePlane.PlaneType.Equals("Bronze"))
-            {
-                var bronzePlanes = GetPlanesByType("Bronze");
-                if (bronzePlanes.Count() == 0)
-                {
-                    updatePlane.PlaneID = 3000;
-                }
-                else
-                {
-                    var lastPlane = bronzePlanes.Last<Avion>();
-                    updatePlane.PlaneID = lastPlane.PlaneID + 1;
-                }
-            }
-            return updatePlane;
-        }
-
+        /**
+      * Summary:
+      *      El metodo retorna todos los aviones de una categoria especifica (Gold/Silver/Bronze).
+      * **/
 
 
         public IEnumerable<Avion> GetPlanesByType(string planeType)
@@ -143,10 +162,13 @@ namespace XTMData
             return query;
         }
 
+        /**
+      * Summary:
+      *      El metodo invoca a la funcion SetAllHabilitados(), y retorna todos los aviones que esten habilitados para volar en una fecha especifica y cuya capacidad sea mayor que la solicitada.
+      * **/
 
 
 
-        
         public IEnumerable<Avion> GetAllHabilitados(string Date, int Passengers, IEnumerable<Avion> Planes, IEnumerable<Booking> Bookings)
         {
             SetAllHabilitados(Date, Planes, Bookings);
@@ -159,6 +181,17 @@ namespace XTMData
 
 
         }
+
+
+        /**
+      * Summary:
+      *      El metodo busca los aviones reservados con los IDs de los Aviones reservados en la Bookings confirmadas.
+      *      Si el avion esta reservado la fecha solicitada, se cambia su estado de Available a false.
+      *      
+      *      
+      *      
+      *      
+      *      **/
 
         public void SetAllHabilitados(string Date, IEnumerable<Avion> Planes, IEnumerable<Booking> Bookings)
         {

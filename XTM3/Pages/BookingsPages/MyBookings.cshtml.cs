@@ -15,31 +15,24 @@ namespace XTM3.Pages.BookingsPages
         public IEnumerable<Booking> ReservedFlights { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public string SearchTerm { get; set; }      //PARAMETRO DE BUSQUEDA DE RESERVAS (ID DE RESERVA O FECHA)
+        public int SearchTerm { get; set; }      //PARAMETRO DE BUSQUEDA DE RESERVAS (ID DE RESERVA O FECHA)
 
         public MyBookingsModel(IBookingData bookingsData)
         {
             this.bookingsData = bookingsData;
-            this.SearchTerm = null;
+            this.SearchTerm = 0;
 
         }
         public IActionResult OnGet()
         {
-            if (SearchTerm == null)
+            if (SearchTerm == 0)
             {
-                ReservedFlights = bookingsData.GetAll();
-                if(ReservedFlights == null)
-                {
-                    return RedirectToPage("/BookingNotFound");
-                }
-                else
-                {
-                    return Page();
-                }
+                    ReservedFlights = bookingsData.GetAll();
+                return Page();
             }
             else
             {
-                ReservedFlights = bookingsData.GetBookingsByDateOrPlaneID(SearchTerm);
+                ReservedFlights = bookingsData.GetUserIDBookings(SearchTerm);
                 if (!ReservedFlights.Any())
                     return RedirectToPage("/BookingsPages/BookingNotFound");
             }
